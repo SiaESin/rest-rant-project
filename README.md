@@ -35,3 +35,17 @@ DELETE      | /places/:id/rant/:rantId  |     Delete a rant (comment) about a pa
 
 GET         |           *               |     404 page (matches any route not defined above)
 
+
+*Data*
+
+Field Name    |    Data Type
+------------------------------
+name          |     string
+
+city          |     string
+
+state         |     string
+
+Type of food  |     string
+
+picture       |     string (a URL)
