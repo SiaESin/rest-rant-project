@@ -2,6 +2,10 @@ body {
     background-color: #17BEBB;
 }
 
+img {
+    margin-left: 2cm;
+    align-items: center;
+}
 h1 {
     text-align: center;
     color: #EF3E36;
