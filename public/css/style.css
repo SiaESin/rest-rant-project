@@ -1,13 +1,48 @@
 body {
-    background-color: #17BEBB;
+    background-color: #5CC8FF;
 }
-
+main {
+    margin-left: 20px; 
+    margin-right: 20px;
+    
+}
 img {
     margin-left: 2cm;
     align-items: center;
 }
 h1 {
     text-align: center;
-    color: #EF3E36;
+    color: #343633;
+    }
+h2 {    
+    margin-left: 2cm;
   }
   
+nav {
+    background-color: #93867F;
+    padding: 10px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+}
+
+nav li {
+    display: inline;
+    margin-right: 25px;
+}
+
+nav a {
+    color: #343633; 
+    font-size: 1.5em;
+}
+
+nav a:hover {
+    color: #ebe9f5;
+    text-decoration: none;
+}
+
+.btn {
+    background-color: #7D70BA;
+}
