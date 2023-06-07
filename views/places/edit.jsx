@@ -6,7 +6,7 @@ function edit_form (data) {
         <Def>
             <main>
                 <h1>Edit Restaurant</h1>
-                <form method='POST' action={`/places/${data.place.id}?_method=PUT`}>
+                <form method='POST' action={`/places/${data.id}?_method=PUT`}>
                     <div className="row">
                         <div className='form-group col-sm-6'>
                             <label htmlFor='name'>Restaurant Name</label>
@@ -14,17 +14,17 @@ function edit_form (data) {
                         </div>
                         <div className='form-group col-sm-6'>   
                             <label htmlFor='cuisine'>Cuisine</label>
-                            <input className='form-control' id='cuisine' name='cuisine' required />
+                            <input className='form-control' id='cuisine' name='cuisine' value={data.place.cuisines} required />
                         </div>
                     </div>
                     <div className="row">    
                         <div className='form-group col-sm-6'>
                             <label htmlFor='city'>City</label>
-                            <input className='form-control' id='city' name='city'/>
+                            <input className='form-control' id='city' name='city' value={data.place.city} />
                         </div>
                         <div className='form-group col-sm-6'>
                             <label htmlFor='state'>State</label>
-                            <input className='form-control' name='state' list='state-list'  />
+                            <input className='form-control' name='state' list='state-list' value={data.place.state}  />
                                 <datalist id='state-list'>
                                     <option value='AL'>Alabama</option>
                                     <option value='AK'>Alaska</option>
@@ -80,10 +80,10 @@ function edit_form (data) {
                         </div> 
                     </div>   
                         <div className='form-group'>    
-                            <label htmlFor='picture'>Restaurant Picture</label>
-                            <input className='form-control' type='url' id='picture' name='picture'/>
+                            <label htmlFor='pic'>Restaurant Picture</label>
+                            <input className='form-control' type='url' id='pic' name='pic' value={data.place.pic} />
                         </div>
-                            <input className='btn btn-primary' type='submit' value='Add Restaurant' />
+                            <input className='btn btn-primary' type='submit' value='Edit Restaurant' />
 
                 </form>
             </main>
