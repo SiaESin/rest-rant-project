@@ -3,15 +3,15 @@ const db = require('../models')
 db.Place.create([
     {
         name: 'H-Thai-ML',
-        city: 'Seattle',
-        state: 'WA',
+        city: 'Coronado',
+        state: 'CA',
         cuisines: 'Thai, Pan-Asian',
         pic: '/images/beachside-restaurant.jpg',
         founded: 1989
     }, {
         name: 'Coding Cat Cafe',
-        city: 'Phoenix',
-        state: 'AZ',
+        city: 'San Diego',
+        state: 'CA',
         cuisines: 'Coffee, Bakery',
         pic: '/images/cityview-restaurant.jpg',
         founded: 2020

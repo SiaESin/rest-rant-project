@@ -1,9 +1,11 @@
 body {
     background-color: #5CC8FF;
+    text-align: center;
 }
 main {
     margin-left: 20px; 
     margin-right: 20px;
+    padding: 20px;
     
 }
 /* .homepage-image {
@@ -19,7 +21,8 @@ h1 {
     color: #343633;
     }
 h2 {    
-    margin-left: 2cm;
+    color: black;
+    font-family:Georgia, 'Times New Roman', Times, serif ;
   }
   
 nav {
@@ -51,4 +54,10 @@ a {
 }
 .btn, .btn-primary {
     background-color: #7D70BA;
+}
+form {
+    display: inline;
+}
+img {
+    height: 30em;
 }
