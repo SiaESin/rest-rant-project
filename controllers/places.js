@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
     res.redirect('./places')
   })
   .catch(err => {
-    console.log(err)
+    console.log('err', err)
     res.render('error404')
   }) 
 })
