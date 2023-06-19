@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const placeSchema = new mongoose.Schema({
   name: { type: String, required: true },
   cuisines: { type: String, required: true  }, 
-  pic: { type: String, default: 'https://unsplash.com/photos/s3oU_RWwzDk' },
+  pic: { type: String },
   city: { type: String, default: 'Anytown' },
   state: { type: String, default: 'USA' },
   founded: {

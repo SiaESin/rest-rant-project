@@ -7,8 +7,13 @@ function show (data) {
             No comments yet!
         </h3>
     )
+    let rating = (
+      <h3 className='inactive'>
+        Not yet rated
+      </h3>
+    )
     if (data.place.comments.length) {
-        comments = data.place.comments.map(c => {
+        comments = data.place.comments.map(c => { 
           return (
             <div className="border">
               <h2 className="rant">{c.rant ? 'Rant! 🤬' : 'Rave! 💖'}</h2>
