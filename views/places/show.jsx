@@ -13,6 +13,19 @@ function show (data) {
       </h3>
     )
     if (data.place.comments.length) {
+        let sumRatings = data.place.comments.reduce((tot, c) => {
+          return tot + c.stars 
+        }, 0)
+        let averageRating = Math.round(sumRatings / data.place.comments.length)
+        let stars = ''
+        for (let i = 0; i < averageRating; i++){
+          stars += '⭐️'
+        }
+        rating = (
+          <h3>
+            {stars} stars 
+          </h3>
+        )
         comments = data.place.comments.map(c => { 
           return (
             <div className="border">
@@ -22,7 +35,6 @@ function show (data) {
                 <strong>- {c.author}</strong>
               </h3>
               <h4>Rating: {c.stars} ⭐️</h4> 
-              {/* <h2 className="recommend">{c.recommend ? 'Recommend! ✅' : 'Do not recommend 🚫'}</h2>  */}
             </div>
           )
         })
@@ -38,7 +50,7 @@ function show (data) {
                     <div className="col-sm-6">
                         <h1>{data.place.name}</h1>
                         <h4>Rating</h4>
-                            <h3>Not Rated</h3>
+                            {rating}
                         <br />
                         <h2>Description</h2>
                             <h3>Serving {data.place.cuisines}</h3>
@@ -49,7 +61,7 @@ function show (data) {
                             Edit
                             </a> 
                              
-                            <form method="POST" action={`/places/${data.id}?_method=DELETE`}> 
+                            <form method="POST" action={`/places/${data.place.id}?_method=DELETE`}> {/*I think Henry had me remove the place in data.place.id I just put it back */}
                                 <button type="submit" className="btn btn-danger">
                                     Delete
                                 </button>
@@ -80,10 +92,7 @@ function show (data) {
                   <label htmlFor="rant">Rant?</label>
                   <input type="checkbox" id="rant" name="rant" className="form-control" />
                 </div>
-                {/* <div className="form-group col-sm-2">
-                  <label htmlFor="recommend">Recommend?</label>
-                  <input type="checkbox" id="recommend" name="recommend" className="form-control" />
-                </div> */}
+                
               </div>
               <input type="submit" className="btn btn-primary" value="Add Comment" />
             </form>       
