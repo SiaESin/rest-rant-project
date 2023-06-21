@@ -6,7 +6,7 @@ function edit_form (data) {
         <Def>
             <main>
                 <h1>Edit Restaurant</h1>
-                 <form method='POST' action={`/places/${data.place.id}?_method=PUT`}> {/*I think Henry had me remove the place in data.place.id I just put it back */}
+                 <form method='POST' action={`/places/${data.id}?_method=PUT`}> 
                     <div className="row">
                         <div className='form-group col-sm-6'>
                             <label htmlFor='name'>Restaurant Name</label>

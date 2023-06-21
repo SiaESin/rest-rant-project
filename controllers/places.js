@@ -38,7 +38,7 @@ router.get('/new', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-  db.Place.findOne({ _id: req.params.id })  // changed from db.Place.findById(req.params.id) fixed deleting issue but not edit
+  db.Place.findByIdAndUpdate(req.params.id) //fixed deleting issue but not edit
     .populate('comments')
     .then(place => {
         console.log(place.comments)
@@ -63,7 +63,7 @@ router.put('/:id', (req, res) => {
 
 router.delete('/:id', (req, res) => {
   db.Place.findByIdAndDelete(req.params.id)
-  .then(() => {
+  .then(place => {
       res.redirect('/places')
   })
   .catch(err => {
@@ -73,11 +73,12 @@ router.delete('/:id', (req, res) => {
 })
 
 router.get('/:id/edit', (req, res) => {
-  db.Place.findOne({ _id: req.params.id })  //db.Place.findById(req.params.id)
+  db.Place.findByIdAndUpdate(req.params.id)
   .then(place => {
-      res.render('places/edit')
+      res.render('places/edit', { place })
   })
   .catch(err => {
+    console.log('err', err)
       res.render('error404')
   })
 })
@@ -89,6 +90,7 @@ router.get('/:id/edit', (req, res) => {
 
 router.post('/:id/comment', (req, res) => {
   console.log(req.body)
+  req.body.rant = req.body.rant ? true : false
   db.Place.findById(req.params.id)
   .then(place => {
       db.Comments.create(req.body) //Note: I had to change comment to comments here. 
