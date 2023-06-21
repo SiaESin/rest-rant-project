@@ -1,7 +1,8 @@
 const router = require('express').Router()
-const places = require('../models/places.js')
-const comments = require("../models/comment")
+// const places = require('../models/places.js')
+// const comments = require("../models/comment")
 const db = require('../models')
+const mongoose = require("mongoose")
 
 router.get('/', (req, res) => {
   db.Place.find()
@@ -75,8 +76,8 @@ router.delete('/:id', (req, res) => {
 
 router.get('/:id/edit', (req, res) => {
   db.Place.findById(req.params.id)
-  .then(() => {
-      res.render('places/edit')
+  .then(place => {
+      res.render('places/edit', { place })
   })
   .catch(err => {
       res.render('error404')
