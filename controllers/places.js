@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const places = require('../models/places.js')
+const comments = require("../models/comment")
 const db = require('../models')
 
 router.get('/', (req, res) => {
@@ -73,12 +74,11 @@ router.delete('/:id', (req, res) => {
 })
 
 router.get('/:id/edit', (req, res) => {
-  db.Place.findByIdAndUpdate(req.params.id)
-  .then(place => {
-      res.render('places/edit', { place })
+  db.Place.findById(req.params.id)
+  .then(() => {
+      res.render('places/edit')
   })
   .catch(err => {
-    console.log('err', err)
       res.render('error404')
   })
 })
